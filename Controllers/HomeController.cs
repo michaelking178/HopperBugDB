@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Hopper.Models;
 
 namespace Hopper.Controllers
 {
@@ -11,7 +10,7 @@ namespace Hopper.Controllers
     {
         public ActionResult Index()
         {
-            return View(GetProjects());
+            return View();
         }
 
         public ActionResult About()
@@ -26,15 +25,6 @@ namespace Hopper.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
-
-        private IEnumerable<Project> GetProjects()
-        {
-            return new List<Project>
-            {
-                new Project { Name = "Hopper Development" },
-                new Project { Name = "Vidly Course" }
-            };
         }
     }
 }

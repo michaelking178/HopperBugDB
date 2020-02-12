@@ -1,0 +1,8 @@
+﻿@model Hopper.Models.Project
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<h4>Bug Count: @Model.Bugs.Count</h4>

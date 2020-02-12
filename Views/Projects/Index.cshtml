@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Hopper.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Projects</h2>
+
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Bug Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var project in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(project.Name, "Details", "Projects", new { Id = project.Id }, null)</td>
+                        <td>@project.Bugs.Count</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
