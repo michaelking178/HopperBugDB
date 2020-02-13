@@ -6,3 +6,42 @@
 
 <h2>@Model.Name</h2>
 <h4>Bug Count: @Model.Bugs.Count</h4>
+
+<p>Add Bug</p>
+
+@if (Model.Bugs.Count == 0)
+{
+    <p>There are no bugs in this database... yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Bug ID</th>
+                <th>Summary</th>
+                <th>Reported By</th>
+                <th>Assignee</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Created</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bug in Model.Bugs)
+            {
+                <tr>
+                    <td>@bug.BugId</td>
+                    <td>@bug.Summary</td>
+                    <td>@bug.ReportedBy</td>
+                    <td>@bug.Assignee</td>
+                    <td>@bug.Status</td>
+                    <td>@bug.Priority</td>
+                    <td>@bug.CreatedOn.ToString()</td>
+                    <td>@bug.UpdatedOn.ToString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
