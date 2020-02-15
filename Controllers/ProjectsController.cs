@@ -9,28 +9,31 @@ namespace Hopper.Controllers
 {
     public class ProjectsController : Controller
     {
-        // GET: Projects
+        private ApplicationDbContext _context;
+
+        public ProjectsController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         public ActionResult Index()
         {
-            return View(GetProjects());
+            var projects = _context.Projects;
+            return View(projects);
         }
 
         public ActionResult Details(int id)
         {
-            var project = GetProjects().SingleOrDefault(proj => proj.Id == id);
+            var project = _context.Projects.SingleOrDefault(proj => proj.Id == id);
             project.Bugs = GetBugs(project);
 
             return View(project);
         }
-
-        private IEnumerable<Project> GetProjects()
-        {
-            return new List<Project>
-            {
-                new Project { Id = 1, Name = "Hopper Development", Code = "HOPP"},
-                new Project { Id = 2, Name = "Vidly Course", Code = "VIDL" }
-            };
-        } // For testing only
 
         private List<Bug> GetBugs(Project proj)
         {
@@ -41,8 +44,8 @@ namespace Hopper.Controllers
                     Project = proj,
                     ReportedBy = "Michael King",
                     Assignee = "Michael King",
-                    Status = "New",
-                    Priority = "High",
+                    BugStatus = Bug.Status.New,
+                    BugPriority = Bug.Priority.High,
                     Summary = "Hopper does not include SQL databases for storing bugs and projects",
                     ActualResult = "Data is not persistent and must be hardcoded for testing.",
                     ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
@@ -54,8 +57,8 @@ namespace Hopper.Controllers
                     Project = proj,
                     ReportedBy = "Michael King",
                     Assignee = "Michael King",
-                    Status = "New",
-                    Priority = "High",
+                    BugStatus = Bug.Status.New,
+                    BugPriority = Bug.Priority.High,
                     Summary = "Hopper does not include SQL databases for storing bugs and projects",
                     ActualResult = "Data is not persistent and must be hardcoded for testing.",
                     ExpectedResult = "Data is persisent and can be dynamically changed and updated.",

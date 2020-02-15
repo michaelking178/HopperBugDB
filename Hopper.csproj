@@ -182,6 +182,14 @@
     <Compile Include="Migrations\202002151801480_PopulateProjects.Designer.cs">
       <DependentUpon>202002151801480_PopulateProjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002151914044_ApplyAnnotationsToModels.cs" />
+    <Compile Include="Migrations\202002151914044_ApplyAnnotationsToModels.Designer.cs">
+      <DependentUpon>202002151914044_ApplyAnnotationsToModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002151918103_RepopulateProjects.cs" />
+    <Compile Include="Migrations\202002151918103_RepopulateProjects.Designer.cs">
+      <DependentUpon>202002151918103_RepopulateProjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bug.cs" />
@@ -275,6 +283,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151801480_PopulateProjects.resx">
       <DependentUpon>202002151801480_PopulateProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151914044_ApplyAnnotationsToModels.resx">
+      <DependentUpon>202002151914044_ApplyAnnotationsToModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002151918103_RepopulateProjects.resx">
+      <DependentUpon>202002151918103_RepopulateProjects.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
