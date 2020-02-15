@@ -20,11 +20,13 @@ namespace Hopper.Models
         public string ExpectedResult { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
+        public List<Comment> Comments { get; set; }
 
         public Bug(Project project, int id)
         {
             Id = id;
             BugId = project.Code + "-" + Id.ToString("D4");
+            Comments = new List<Comment>();
         }
     }
 }
