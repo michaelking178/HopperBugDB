@@ -10,6 +10,7 @@ namespace Hopper.Models
         // Bug comments allow users to communicate with each other over the status and progress of a bug.
         // Each comment contains a message that can be updated. Message edits are saved and include time stamps.
 
+        public int Id { get; set; }
         public string User { get; set; } // TODO: update to a user object when it's ready.
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }

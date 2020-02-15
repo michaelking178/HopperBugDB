@@ -10,6 +10,7 @@ namespace Hopper.Models
         // A Message is the main body of a bug comment.
         // A time stamp is saved when a message is created, allowing for a history of message edits in the comment.
 
+        public int Id { get; set; }
         public string Text { get; set; }
         public DateTime Created { get; set; }
 
