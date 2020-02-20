@@ -9,11 +9,13 @@
 
 <div class="row">
     <div class="col">
+        @Html.ActionLink("Create a New Project", "New", "Projects")
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>Project Name</th>
                     <th>Bug Count</th>
+                    <th>Date Created</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +24,7 @@
                     <tr>
                         <td>@Html.ActionLink(project.Name, "Details", "Projects", new { Id = project.Id }, null)</td>
                         <td>@project.Bugs.Count</td>
+                        <td>@project.Created.ToShortDateString()</td>
                     </tr>
                 }
             </tbody>

@@ -1,0 +1,20 @@
+﻿@model Hopper.Models.Project
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Project</h2>
+
+@using (Html.BeginForm("Create", "Projects"))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.Name)
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" } )
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Code)
+        @Html.TextBoxFor(p => p.Code, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Create Project</button>
+}

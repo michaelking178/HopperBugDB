@@ -190,6 +190,10 @@
     <Compile Include="Migrations\202002151918103_RepopulateProjects.Designer.cs">
       <DependentUpon>202002151918103_RepopulateProjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002200243505_UpdateProjectModel.cs" />
+    <Compile Include="Migrations\202002200243505_UpdateProjectModel.Designer.cs">
+      <DependentUpon>202002200243505_UpdateProjectModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bug.cs" />
@@ -260,6 +264,7 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151918103_RepopulateProjects.resx">
       <DependentUpon>202002151918103_RepopulateProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002200243505_UpdateProjectModel.resx">
+      <DependentUpon>202002200243505_UpdateProjectModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

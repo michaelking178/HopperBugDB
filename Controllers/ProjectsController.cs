@@ -35,6 +35,20 @@ namespace Hopper.Controllers
             return View(project);
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Project project)
+        {
+            _context.Projects.Add(project);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Projects");
+        }
+
         private List<Bug> GetBugs(Project proj)
         {
             return new List<Bug>
