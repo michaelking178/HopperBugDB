@@ -27,9 +27,9 @@ namespace Hopper.Controllers
             return View(projects);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string code)
         {
-            var project = _context.Projects.SingleOrDefault(proj => proj.Id == id);
+            var project = _context.Projects.SingleOrDefault(proj => proj.Code == code);
             project.Bugs = GetBugs(project);
 
             return View(project);

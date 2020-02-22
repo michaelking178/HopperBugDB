@@ -22,7 +22,7 @@
                 @foreach (var project in Model)
                 {
                     <tr>
-                        <td>@Html.ActionLink(project.Name, "Details", "Projects", new { Id = project.Id }, null)</td>
+                        <td>@Html.ActionLink(project.Name, "Details", "Projects", new { code = project.Code }, null)</td>
                         <td>@project.Bugs.Count</td>
                         <td>@project.Created.ToShortDateString()</td>
                     </tr>
