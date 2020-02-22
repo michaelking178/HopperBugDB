@@ -37,13 +37,30 @@ namespace Hopper.Controllers
 
         public ActionResult New()
         {
-            return View();
+            return View("ProjectForm");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var project = _context.Projects.SingleOrDefault(p => p.Id == id);
+            if (project == null)
+            {
+                return HttpNotFound();
+            }
+            return View("ProjectForm", project);
         }
 
         [HttpPost]
-        public ActionResult Create(Project project)
+        public ActionResult Save(Project project)
         {
-            _context.Projects.Add(project);
+            if (project.Id == 0)
+                _context.Projects.Add(project);
+            else
+            {
+                var projectInDb = _context.Projects.Single(p => p.Id == project.Id);
+                projectInDb.Name = project.Name;
+                projectInDb.Code = project.Code;
+            }
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Projects");

@@ -1,12 +1,12 @@
 ﻿@model Hopper.Models.Project
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "Project Form";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Project</h2>
+<h3>Project Details</h3>
 
-@using (Html.BeginForm("Create", "Projects"))
+@using (Html.BeginForm("Save", "Projects"))
 {
     <div class="form-group">
         @Html.LabelFor(p => p.Name)
@@ -16,5 +16,9 @@
         @Html.LabelFor(p => p.Code)
         @Html.TextBoxFor(p => p.Code, new { @class = "form-control" })
     </div>
+    @Html.HiddenFor(p => p.Id)
     <button type="submit" class="btn btn-primary">Create Project</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
 }
+
+<p style="padding-top:15px;">@Html.ActionLink("Back to Projects", "Index", "Projects")</p>

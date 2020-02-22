@@ -5,9 +5,10 @@
 }
 
 <h2>@Model.Name</h2>
-<h4>Bug Count: @Model.Bugs.Count</h4>
+<p>Bug Count: @Model.Bugs.Count</p>
+@Html.ActionLink("Edit Project Details", "Edit", "Projects", new {id = Model.Id}, null )
 
-<p>Add Bug</p>
+<h4>Create Issue</h4>
 
 @if (Model.Bugs.Count == 0)
 {

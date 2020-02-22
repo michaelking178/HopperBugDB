@@ -264,7 +264,7 @@
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
-    <Content Include="Views\Projects\New.cshtml" />
+    <Content Include="Views\Projects\ProjectForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
