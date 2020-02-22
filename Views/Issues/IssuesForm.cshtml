@@ -1,0 +1,14 @@
+﻿@model Hopper.ViewModels.IssueFormViewModel
+@{
+    ViewBag.Title = "Create Issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Issue Details</h3>
+
+@using (Html.BeginForm("Save", "Issues"))
+{
+    <div class="form-group">
+        @Html.DropDownList("Issue Type")
+    </div>
+}

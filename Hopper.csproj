@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,10 @@
     <Compile Include="Migrations\202002200243505_UpdateProjectModel.Designer.cs">
       <DependentUpon>202002200243505_UpdateProjectModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002221622037_AddIssueForBugInheritance.cs" />
+    <Compile Include="Migrations\202002221622037_AddIssueForBugInheritance.Designer.cs">
+      <DependentUpon>202002221622037_AddIssueForBugInheritance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bug.cs" />
@@ -205,6 +210,7 @@
     <Compile Include="Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\IssueFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -266,10 +272,10 @@
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Projects\Details.cshtml" />
     <Content Include="Views\Projects\ProjectForm.cshtml" />
+    <Content Include="Views\Issues\IssuesForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Issues\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002200243505_UpdateProjectModel.resx">
       <DependentUpon>202002200243505_UpdateProjectModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002221622037_AddIssueForBugInheritance.resx">
+      <DependentUpon>202002221622037_AddIssueForBugInheritance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

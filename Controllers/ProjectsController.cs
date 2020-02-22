@@ -66,6 +66,7 @@ namespace Hopper.Controllers
             return RedirectToAction("Index", "Projects");
         }
 
+        // For testing only
         private List<Bug> GetBugs(Project proj)
         {
             return new List<Bug>
@@ -75,8 +76,8 @@ namespace Hopper.Controllers
                     Project = proj,
                     ReportedBy = "Michael King",
                     Assignee = "Michael King",
-                    BugStatus = Bug.Status.New,
-                    BugPriority = Bug.Priority.High,
+                    IssueStatus = Bug.Status.New,
+                    IssuePriority = Bug.Priority.High,
                     Summary = "Hopper does not include SQL databases for storing bugs and projects",
                     ActualResult = "Data is not persistent and must be hardcoded for testing.",
                     ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
@@ -88,8 +89,8 @@ namespace Hopper.Controllers
                     Project = proj,
                     ReportedBy = "Michael King",
                     Assignee = "Michael King",
-                    BugStatus = Bug.Status.New,
-                    BugPriority = Bug.Priority.High,
+                    IssueStatus = Bug.Status.New,
+                    IssuePriority = Bug.Priority.High,
                     Summary = "Hopper does not include SQL databases for storing bugs and projects",
                     ActualResult = "Data is not persistent and must be hardcoded for testing.",
                     ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
@@ -97,6 +98,6 @@ namespace Hopper.Controllers
                     UpdatedOn = DateTime.Now
                 }
             };
-        } // For testing only
+        } 
     }
 }

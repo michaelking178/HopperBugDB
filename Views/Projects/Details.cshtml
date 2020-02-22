@@ -8,7 +8,7 @@
 <p>Bug Count: @Model.Bugs.Count</p>
 @Html.ActionLink("Edit Project Details", "Edit", "Projects", new {id = Model.Id}, null )
 
-<h4>Create Issue</h4>
+<h4>@Html.ActionLink("Create Issue", "Create", "Issues", new {id = Model.Id}, null)</h4>
 
 @if (Model.Bugs.Count == 0)
 {
@@ -33,12 +33,12 @@ else
             @foreach (var bug in Model.Bugs)
             {
                 <tr>
-                    <td>@bug.BugId</td>
+                    <td>@bug.IssueId</td>
                     <td>@bug.Summary</td>
                     <td>@bug.ReportedBy</td>
                     <td>@bug.Assignee</td>
-                    <td>@bug.BugStatus</td>
-                    <td>@bug.BugPriority</td>
+                    <td>@bug.IssueStatus</td>
+                    <td>@bug.IssuePriority</td>
                     <td>@bug.CreatedOn.ToString()</td>
                     <td>@bug.UpdatedOn.ToString()</td>
                 </tr>
