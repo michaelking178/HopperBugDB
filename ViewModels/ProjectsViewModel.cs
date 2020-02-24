@@ -6,9 +6,9 @@ using Hopper.Models;
 
 namespace Hopper.ViewModels
 {
-    public class IssueFormViewModel
+    public class ProjectsViewModel
     {
-        public Project Project { get; set; }
-        public Issue Issue { get; set; }
+        public IEnumerable<Project> Projects;
+        public IEnumerable<Bug> Bugs;
     }
 }

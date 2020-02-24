@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Hopper.Models.Project>
+﻿@model Hopper.ViewModels.ProjectsViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -19,14 +19,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var project in Model)
+                @foreach (var project in Model.Projects)
                 {
-                    <tr>
-                        <td>@Html.ActionLink(project.Name, "Details", "Projects", new { code = project.Code }, null)</td>
-                        <td>@project.Bugs.Count</td>
-                        <td>@project.Created.ToShortDateString()</td>
-                    </tr>
-                }
+                <tr>
+                    <td>@Html.ActionLink(project.Name, "Details", "Projects", new { code = project.Code }, null)</td>
+                    <td>Model.Bugs.Count()</td>
+                    <td>@project.Created.ToShortDateString()</td>
+                </tr>
+                 }
             </tbody>
         </table>
     </div>

@@ -21,12 +21,9 @@ namespace Hopper.Models
 
         public DateTime Created { get; set; }
 
-        public List<Bug> Bugs { get; set; }
-
         public Project()
         {
             Created = DateTime.Now;
-            Bugs = new List<Bug>();
         }
     }
 }

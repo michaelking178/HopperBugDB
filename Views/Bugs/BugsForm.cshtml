@@ -1,0 +1,45 @@
+﻿@model Hopper.ViewModels.BugFormViewModel
+@{
+    ViewBag.Title = "Create Issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Create Bug</h3>
+
+@using (Html.BeginForm("Save", "Bugs"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.Summary)
+        @Html.TextBoxFor(m => m.Bug.Summary, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.ReportedBy)
+        @Html.TextBoxFor(m => m.Bug.ReportedBy, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.Assignee)
+        @Html.TextBoxFor(m => m.Bug.Assignee, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.IssuePriority)
+        @Html.TextBoxFor(m => m.Bug.IssuePriority, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.StepsToReproduce)
+        @Html.TextBoxFor(m => m.Bug.StepsToReproduce, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.ActualResult)
+        @Html.TextBoxFor(m => m.Bug.ActualResult, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bug.ExpectedResult)
+        @Html.TextBoxFor(m => m.Bug.ExpectedResult, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Bug.Id)
+    @Html.HiddenFor(m => m.Project.Id)
+    <button type="submit" class="btn btn-primary">Create Bug</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+}
+
+@Html.ActionLink("Return to Project", "Details", "Projects", Model.Project, null)

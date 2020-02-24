@@ -12,10 +12,8 @@ namespace Hopper.Models
         public string ActualResult { get; set; }
         public string ExpectedResult { get; set; }
 
-        public Bug(Project project, int id) // Manual ID assignment will be removed when integrated with SQL.
+        public Bug ()
         {
-            Id = id;
-            IssueId = project.Code + "-" + Id.ToString("D4");
             Comments = new List<Comment>();
             IssueStatus = Status.New;
             CreatedOn = DateTime.Now;

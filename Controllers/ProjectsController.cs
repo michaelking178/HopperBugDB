@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Hopper.Models;
+using Hopper.ViewModels;
 
 namespace Hopper.Controllers
 {
@@ -24,15 +25,29 @@ namespace Hopper.Controllers
         public ActionResult Index()
         {
             var projects = _context.Projects;
-            return View(projects);
+            var bugs = _context.Bugs;
+
+            var viewModel = new ProjectsViewModel
+            {
+                Projects = projects,
+                Bugs = bugs
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Details(string code)
         {
             var project = _context.Projects.SingleOrDefault(proj => proj.Code == code);
-            project.Bugs = GetBugs(project);
+            var bugs = _context.Bugs.Where(b => b.Project.Id == project.Id);
 
-            return View(project);
+            var viewModel = new ProjectDetailsViewModel
+            {
+                Project = project,
+                Bugs = bugs
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult New()
@@ -66,38 +81,38 @@ namespace Hopper.Controllers
             return RedirectToAction("Index", "Projects");
         }
 
-        // For testing only
-        private List<Bug> GetBugs(Project proj)
-        {
-            return new List<Bug>
-            {
-                new Bug(proj, 1)
-                {
-                    Project = proj,
-                    ReportedBy = "Michael King",
-                    Assignee = "Michael King",
-                    IssueStatus = Bug.Status.New,
-                    IssuePriority = Bug.Priority.High,
-                    Summary = "Hopper does not include SQL databases for storing bugs and projects",
-                    ActualResult = "Data is not persistent and must be hardcoded for testing.",
-                    ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
-                    CreatedOn = DateTime.Now,
-                    UpdatedOn = DateTime.Now
-                },
-                new Bug(proj, 2)
-                {
-                    Project = proj,
-                    ReportedBy = "Michael King",
-                    Assignee = "Michael King",
-                    IssueStatus = Bug.Status.New,
-                    IssuePriority = Bug.Priority.High,
-                    Summary = "Hopper does not include SQL databases for storing bugs and projects",
-                    ActualResult = "Data is not persistent and must be hardcoded for testing.",
-                    ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
-                    CreatedOn = DateTime.Now,
-                    UpdatedOn = DateTime.Now
-                }
-            };
-        } 
+        //// For testing only
+        //private List<Bug> GetBugs(Project proj)
+        //{
+        //    return new List<Bug>
+        //    {
+        //        new Bug(proj, 1)
+        //        {
+        //            Project = proj,
+        //            ReportedBy = "Michael King",
+        //            Assignee = "Michael King",
+        //            IssueStatus = Issue.Status.New,
+        //            IssuePriority = Issue.Priority.High,
+        //            Summary = "Hopper does not include SQL databases for storing bugs and projects",
+        //            ActualResult = "Data is not persistent and must be hardcoded for testing.",
+        //            ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
+        //            CreatedOn = DateTime.Now,
+        //            UpdatedOn = DateTime.Now
+        //        },
+        //        new Bug(proj, 2)
+        //        {
+        //            Project = proj,
+        //            ReportedBy = "Michael King",
+        //            Assignee = "Michael King",
+        //            IssueStatus = Issue.Status.New,
+        //            IssuePriority = Issue.Priority.High,
+        //            Summary = "Hopper does not include SQL databases for storing bugs and projects",
+        //            ActualResult = "Data is not persistent and must be hardcoded for testing.",
+        //            ExpectedResult = "Data is persisent and can be dynamically changed and updated.",
+        //            CreatedOn = DateTime.Now,
+        //            UpdatedOn = DateTime.Now
+        //        }
+        //    };
+        //} 
     }
 }

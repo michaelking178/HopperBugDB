@@ -1,16 +1,16 @@
-﻿@model Hopper.Models.Project
+﻿@model Hopper.ViewModels.ProjectDetailsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
-<p>Bug Count: @Model.Bugs.Count</p>
-@Html.ActionLink("Edit Project Details", "Edit", "Projects", new {id = Model.Id}, null )
+<h2>@Model.Project.Name</h2>
+<p>Bug Count: @Model.Bugs.Count()</p>
+@Html.ActionLink("Edit Project Details", "Edit", "Projects", new {id = Model.Project.Id}, null )
 
-<h4>@Html.ActionLink("Create Issue", "Create", "Issues", new {id = Model.Id}, null)</h4>
+<h4>@Html.ActionLink("Create Issue", "New", "Bugs", new {id = Model.Project.Id}, null)</h4>
 
-@if (Model.Bugs.Count == 0)
+@if (Model.Bugs.Count() == 0)
 {
     <p>There are no bugs in this database... yet.</p>
 }
