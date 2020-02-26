@@ -5,29 +5,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Projects</h2>
+<div class="row">
+    <h1>Projects</h1>
+</div>
 
 <div class="row">
     <div class="col">
-        @Html.ActionLink("Create a New Project", "New", "Projects")
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Issue Count</th>
-                    <th>Date Created</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var project in Model.Projects)
-                {
-                <tr>
-                    <td>@Html.ActionLink(project.Name, "Details", "Projects", new { code = project.Code }, null)</td>
-                    <td>Model.Bugs.Count()</td>
-                    <td>@project.Created.ToShortDateString()</td>
-                </tr>
-                 }
-            </tbody>
-        </table>
+        <p>@Html.ActionLink("Create a New Project", "New", "Projects")</p>
     </div>
+</div>
+<div class="row">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Issue Count</th>
+                <th>Date Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in Model.Projects)
+            {
+            <tr>
+                <td>@Html.ActionLink(project.Name, "Details", "Projects", new { code = project.Code }, null)</td>
+                <td>Model.Bugs.Count()</td>
+                <td>@project.Created.ToShortDateString()</td>
+            </tr>
+                }
+        </tbody>
+    </table>
 </div>

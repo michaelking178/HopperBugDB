@@ -1,0 +1,77 @@
+﻿@model Hopper.Models.Bug
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <h3>@Model.Summary</h3>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <b>Date created:</b> @Model.CreatedOn.ToString()
+    </div>
+    <div class="col-md-6">
+        <b>Reported by:</b> @Model.ReportedBy
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <b>Updated:</b> @Model.UpdatedOn.ToString()
+    </div>
+    <div class="col-md-6">
+        <b>Assigned to:</b> @Model.Assignee
+    </div>
+    <br />
+    <br />
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <b>Status:</b> @Model.IssueStatus
+    </div>
+    <div class="col-md-6">
+        <b>Priority:</b> @Model.IssuePriority
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col">
+        <b>Steps to Reproduce:</b><br />
+        @Model.StepsToReproduce
+        <br />
+        <br />
+        <b>Actual Result:</b><br />
+        @Model.ActualResult
+        <br />
+        <br />
+        <b>Expected Result:</b><br />
+        @Model.ExpectedResult
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="col">
+        <b>Comments:</b>
+        @if (Model.Comments.Count == 0)
+        {
+            <div>
+                <p>There are no comments yet.</p>
+            </div>
+        }
+        else
+        {
+            foreach (var comment in Model.Comments)
+            {
+                <div>
+                    <p>@comment</p>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -1,7 +1,57 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "About Hopper (and the guy who made it)";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<div class="row">
+    <h1>@ViewBag.Title</h1>
+</div>
 
-<p>Use this area to provide additional information.</p>
+<div class="row">
+    <div class="col-xs-1 icon">
+        <i class="fas fa-arrow-circle-right"></i>
+    </div>
+    <div class="col-xs-11">
+        <h3>@ViewBag.Message1</h3>
+        <p>
+            Hopper is a bug database created by me, Michael King, using ASP.NET MVC, SQL and the Entity framework. It's roughly based on my own experience working with JIRA in video game and software
+            quality assurance.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1 icon">
+        <i class="fas fa-arrow-circle-right"></i>
+    </div>
+    <div class="col-xs-11">
+        <h3>@ViewBag.Message2</h3>
+        <p>
+            I work in video game quality assurance at Keywords Studios, Montreal. I know first-hand that catching bugs and communicating with developers requires a responsive,
+            fast database app that's easy to navigate. My experience as a self-taught C# .NET developer has shown me the other side of the coin, that finding bugs in my software is only
+            the beginning of a (sometimes long and time-consuming) journey toward solving the problem and creating a robust solution. My goal with Hopper is to demonstrate an environment where
+            both QA testers and developers can thrive in their respective roles.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1 icon">
+        <i class="fas fa-arrow-circle-right"></i>
+    </div>
+    <div class="col-xs-11">
+        <h3>@ViewBag.Message3</h3>
+        <p>
+            I'm Michael King. I grew up on the Canadian prairies and taught myself coding in C#, JavaScript, and a bit of C++ too. I've done front-end and back-end development using Node.js, Express and
+            jQuery, and I've created various Windows applications using WPF, WinForms and ASP.NET MVC. I love learning about best practices and I try to focus on using clean code, OOP, design patterns,
+            data structures and algorithms to create the most robust software possible. While living in Saskatchewan I completed a Bachelor of Arts degree with a major in Music.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-1 icon">
+        <i class="fas fa-arrow-circle-right"></i>
+    </div>
+    <div class="col-xs-11">
+        <h3>@ViewBag.Message4</h3>
+        <p>
+            So glad you asked. Check out my @Html.ActionLink("Contact Page", "Contact", "Home") to get in touch.
+        </p>
+    </div>
+</div>

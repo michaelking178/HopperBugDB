@@ -4,11 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Project.Name</h2>
-<p>Bug Count: @Model.Bugs.Count()</p>
-@Html.ActionLink("Edit Project Details", "Edit", "Projects", new {id = Model.Project.Id}, null )
+<h1>@Model.Project.Name</h1>
+<div class="row">
+    <div class="col-md-6">
+        <p>@Html.ActionLink("Edit Project Details", "Edit", "Projects", new { id = Model.Project.Id }, null)</p>
+        <p>Bug Count: @Model.Bugs.Count()</p>
+    </div>
+</div>
 
-<h4>@Html.ActionLink("Create Issue", "New", "Bugs", new {id = Model.Project.Id}, null)</h4>
+<h3>@Html.ActionLink("Create Issue", "New", "Bugs", new {id = Model.Project.Id}, null)</h3>
 
 @if (Model.Bugs.Count() == 0)
 {
@@ -34,7 +38,7 @@ else
             {
                 <tr>
                     <td>@bug.IssueId</td>
-                    <td>@bug.Summary</td>
+                    <td>@Html.ActionLink(bug.Summary, "Index", "Bugs", new { issueId = bug.IssueId }, null)</td>
                     <td>@bug.ReportedBy</td>
                     <td>@bug.Assignee</td>
                     <td>@bug.IssueStatus</td>

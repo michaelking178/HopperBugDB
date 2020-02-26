@@ -22,9 +22,15 @@ namespace Hopper.Controllers
             _context.Dispose();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string issueId)
         {
-            return RedirectToAction("Index", "Projects");
+            if (issueId == null)
+                return RedirectToAction("Index", "Projects");
+            else
+            {
+                var issue = _context.Bugs.SingleOrDefault(b => b.IssueId == issueId);
+                return View(issue);
+            }
         }
 
         public ActionResult New(int id)

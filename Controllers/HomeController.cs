@@ -15,14 +15,17 @@ namespace Hopper.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message1 = "A JIRA-like bug database.";
+            ViewBag.Message2 = "Inspired by real-world QA.";
+            ViewBag.Message3 = "...Who is this guy?";
+            ViewBag.Message4 = "Okay. How do we get him?";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "I'd like to hear from you.";
 
             return View();
         }
